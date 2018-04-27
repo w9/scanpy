@@ -429,8 +429,8 @@ def get_indices_distances_from_sparse_matrix(D, n_neighbors):
             distances[i, 1:] = D[i][
                 neighbors[0][sorted_indices], neighbors[1][sorted_indices]]
         else:
-            indices[i, 1:] = neighbors[1]
-            distances[i, 1:] = D[i][neighbors]
+            indices[i, 1:(len(neighbors[1])+1)] = neighbors[1]
+            distances[i, 1:(len(neighbors[1])+1)] = D[i][neighbors]
     return indices, distances
 
 
